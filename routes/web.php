@@ -22,4 +22,3 @@ Route::get('/postCategory3', 'PostController@postCategory3');
 
 
 Route::get('/posts/{id}', 'PostControler@view');
-
