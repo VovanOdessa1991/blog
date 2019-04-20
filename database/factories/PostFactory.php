@@ -1,7 +1,7 @@
 <?php
 
-use App\Category;
-use Illuminate\Support\Str;
+use App\Post;
+
 use Faker\Generator as Faker;
 
 /*
@@ -14,10 +14,24 @@ use Faker\Generator as Faker;
 | model instances for testing / seeding your application's database.
 |
 */
+//$users->each(function($user){ factory('App\Tag', 3)->create(['user_id'=>$user->id]); });
 
-$factory->define(Category::class, function (Faker $faker) {
+
+
+//$users->each(function($user){
+//    factory('App\Post', 10)->create([
+//        'user_id'=>$user->id,
+//         'category_id'=>rand(1,20)
+//    ]
+//    );
+//});
+
+
+$factory->define(Post::class, function (Faker $faker) {
     return [
-        'name' => $faker->company,
+        'title' => $faker->sentence,
+        'cover'=>$faker->imageUrl(),
         'slug'=>$faker->slug,
+        'text'=>$faker->text(150),
     ];
 });
