@@ -22,3 +22,8 @@ Route::get('/postCategory3', 'PostController@postCategory3');
 
 
 Route::get('/posts/{id}', 'PostControler@view');
+Route::get('/postTest', function(){
+    $post=\App\Post::find(1);
+    dd($post->tags);
+
+})->name('home.index');
