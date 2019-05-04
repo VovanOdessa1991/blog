@@ -23,9 +23,7 @@ Route::get('/postCategory3', 'PostController@postCategory3');
 
 Route::get('/posts/{id}', 'PostControler@view');
 Route::get('/postTest', function(){
-    $post=\App\Post::find(1);
+    $posts=\App\Post::paginate(15);
+    return view('posts.all', ['posts'=> $posts]);
 
-    $post->tags()->attach([2,3,4]);
-    dd($post->tags);
-
-})->name('home.index');
+})->name('posts.all' );
