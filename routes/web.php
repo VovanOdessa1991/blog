@@ -59,3 +59,13 @@ Route::get('/category/{slug}', function($slug){
         'posts'=>$posts
     ]);
 })->name('category.find' );
+
+Route::get('/tag/{slug}', function($slug){
+    $tag=\App\Tag::where('slug', '=', $slug)->first();
+    $posts=$tag->posts()->paginate(5);
+
+    return view('posts.by-tag',[
+        'tag'=>$tag,
+        'posts'=>$posts
+    ]);
+})->name('tag.find' );

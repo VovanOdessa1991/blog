@@ -4,7 +4,7 @@
         <p>User<a href="{{route('user.find', $post->user->id)}}"> {{$post->user->name}}</a> at {{$post->created_at->diffForHumans()}}</p>
         <p>Tags</p>
         @foreach($post->tags as $tag)
-            {{$tag->name}}
+            <a href="{{route('tag.find', $tag->slug)}}">{{$tag->name}}</a>
         @endforeach
     <hr>
 @endforeach
