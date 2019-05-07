@@ -22,6 +22,10 @@ Route::get('/postCategory3', 'PostController@postCategory3');
 
 
 Route::get('/posts/{id}', 'PostControler@view');
+
+
+
+
 Route::get('/postTest', function(){
     $posts=\App\Post::paginate(15);
     return view('posts.all', ['posts'=> $posts]);
@@ -33,6 +37,18 @@ Route::get('/postTest/{id}', function($id){
     return view('posts.post', ['post'=> $post]);
 
 })->name('post.find' );
+
+
+Route::get('/user/{id}', function($id){
+    $user=\App\User::find($id);
+    $posts=$user->posts()->paginate(5);
+
+    return view('posts.by-user',[
+        'user'=>$user,
+        'posts'=>$posts
+    ]);
+
+})->name('user.find' );
 
 Route::get('/category/{slug}', function($slug){
     $category=\App\Category::where('slug', '=', $slug)->first();
