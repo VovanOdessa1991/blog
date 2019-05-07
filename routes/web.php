@@ -27,3 +27,19 @@ Route::get('/postTest', function(){
     return view('posts.all', ['posts'=> $posts]);
 
 })->name('posts.all' );
+
+Route::get('/postTest/{id}', function($id){
+    $post=\App\Post::find($id);
+    return view('posts.post', ['post'=> $post]);
+
+})->name('post.find' );
+
+Route::get('/category/{slug}', function($slug){
+    $category=\App\Category::where('slug', '=', $slug)->first();
+    $posts=$category->posts()->paginate(5);
+
+    return view('posts.by-category',[
+        'category'=>$category,
+        'posts'=>$posts
+    ]);
+})->name('category.find' );
