@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         factory('App\User', 10 )->create();
 
         $users= \App\User::all();
-        $users->each(function($user){ factory('App\Category', 3)->create(['user_id'=>$user->id]); });
+        $users->each(function($user){ factory('App\Category', 1)->create(['user_id'=>$user->id]); });
         $users->each(function($user){ factory('App\Tag', 3)->create(['user_id'=>$user->id]); });
 
 

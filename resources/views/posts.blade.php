@@ -8,7 +8,33 @@
     <title>Document</title>
 </head>
 <body>
-        <h1>Posts!</h1>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate dolor dolore ducimus eveniet laborum molestiae porro quas quo saepe. Commodi dolores eos, excepturi fuga quaerat quibusdam saepe sint ut voluptatum.
+
+@section('content')
+    <div class="jumbotron">
+        <h1 class="display-4">Hello, world!</h1>
+        <p class="lead">Это простой пример блока с компонентом в стиле jumbotron для привлечения дополнительного внимания к содержанию или информации.</p>
+        <hr class="my-4">
+        <p>Использются служебные классы для типографики и расстояния содержимого в контейнере большего размера.</p>
+        <footer>
+            <div class="container">
+                <div class="row justify-content-between">
+
+                    <div class="col-7 ">
+                        <p class="lead">
+                            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                        </p>
+                    </div>
+
+                    <div class="col ">
+                        <button class="tegs">  <i class="far fa-comment-dots"></i>12</button>
+                        <button class="tegs"> <i class="fas fa-star"></i> 23</button>
+                        <button class="tegs"> <i class="fas fa-heart"></i> test</button>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+@endsection
 </body>
 </html>

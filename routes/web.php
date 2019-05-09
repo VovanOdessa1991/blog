@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'WelcomeControler@index' );
+Route::get('/postTest', 'WelcomeControler@index' );
 Route::get('/signIn', 'SignController@signIn' );
 Route::get('/signUp', 'SignController@signUp' );
 
@@ -26,9 +26,9 @@ Route::get('/posts/{id}', 'PostControler@view');
 
 
 
-Route::get('/postTest', function(){
+Route::get('/', function(){
     $posts=\App\Post::paginate(15);
-    return view('posts.all', ['posts'=> $posts]);
+    return view('homeBlog', ['posts'=> $posts]);
 
 })->name('posts.all' );
 
