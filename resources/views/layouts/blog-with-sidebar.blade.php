@@ -35,13 +35,13 @@
                     <a class="nav-link" href="/">Home </a>
                 </li>
                 <li class="nav-item @yield('category1')">
-                    <a class="nav-link" href="/postCategory1">Категория 1</a>
+                    <a class="nav-link" href="{{route('category.find', 'Frontend' )}}">Категория 1</a>
                 </li>
                 <li class="nav-item @yield('category2')">
-                    <a class="nav-link " href="/postCategory2">Категория 2</a>
+                    <a class="nav-link " href="{{route('category.find', 'backend' )}}">Категория 2</a>
                 </li>
                 <li class="nav-item @yield('category3')">
-                    <a class="nav-link " href="postCategory3">Категория 3</a>
+                    <a class="nav-link " href="{{route('category.find', 'Life' )}}">Категория 3</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
