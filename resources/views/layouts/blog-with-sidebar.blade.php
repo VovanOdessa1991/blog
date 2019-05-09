@@ -69,10 +69,15 @@
         <div class="col-3">
             <div class="list-group">
                 <h1 class="bg-primary">Теги</h1>
-                <a href="index.html" class="list-group-item list-group-item-action">PHP</a>
-                <a href="index.html" class="list-group-item list-group-item-action">CSS</a>
-                <a href="index.html" class="list-group-item list-group-item-action">js</a>
-                <a href="index.html" class="list-group-item list-group-item-action">HTML</a>
+                @foreach($posts as $post)
+                @foreach($post->tags as $tag)
+                    <a href="{{route('tag.find', $tag->slug)}}" class="list-group-item list-group-item-action">{{$tag->name}}</a>
+                @endforeach
+                @endforeach
+{{--                <a href="index.html" class="list-group-item list-group-item-action">PHP</a>--}}
+{{--                <a href="index.html" class="list-group-item list-group-item-action">CSS</a>--}}
+{{--                <a href="index.html" class="list-group-item list-group-item-action">js</a>--}}
+{{--                <a href="index.html" class="list-group-item list-group-item-action">HTML</a>--}}
 
             </div>
         </div>
