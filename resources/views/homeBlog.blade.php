@@ -14,16 +14,14 @@
 @section('content')
 
 
+
+
+
+
+
+
     @foreach($posts as $post)
-    @foreach($post->likes as $like)
-        {{$like->slug}}
-    @endforeach
 
-
-
-
-    @endforeach
-    @foreach($posts as $post)
     <div class="jumbotron">
         <h1 class="display-4"><a href="{{route('post.find', $post->id)}}">{{$post->title }}</a></h1>
         <p class="lead"><p><a href="{{route('category.find', $post->category->slug)}}">Categori: {{$post->category->name}}</a></p></p>
@@ -56,7 +54,9 @@
                     @foreach($post->tags as $tag)
                         <a href="{{route('tag.find', $tag->slug)}}">{{$tag->name}}</a>
                     @endforeach
-
+                            @foreach($post->likes as $like)
+                                {{$like->slug}}
+                            @endforeach
                         </div>
                 </div>
 

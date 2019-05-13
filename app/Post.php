@@ -21,7 +21,7 @@ class Post extends Model
     }
 
 
-    public function laikes(){
+    public function likes(){
         return $this->hasMany(Like::class);
 
     }
