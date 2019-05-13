@@ -19,4 +19,13 @@ class Post extends Model
     public function tags(){
         return $this->belongsToMany(Tag::class)->withTimestamps();
     }
+
+
+    public function laikes(){
+        return $this->hasMany(Like::class);
+
+    }
+
+
+
 }
