@@ -27,8 +27,12 @@ Route::get('/posts/{id}', 'PostControler@view');
 
 
 Route::get('/', function(){
-    $posts=\App\Post::paginate(15);
-    return view('homeBlog', ['posts'=> $posts]);
+//    $posts=\App\Post::paginate(15);
+//    $posts = App\Post::withCount('likes')->get();
+//    $posts = App\Post::withCount('likes')->get()->paginate(15);
+    $posts = App\Post::withCount('likes')->paginate(15);
+
+    return view('homeBlog', ['posts'=> $posts ]);
 
 })->name('posts.all' );
 

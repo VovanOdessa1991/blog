@@ -1,3 +1,7 @@
+{{--@foreach($posts as $post)--}}
+{{--<h1>{{dd($post->likes_count)}}</h1>--}}
+{{--@endforeach--}}
+
 @extends('layouts.blog-with-sidebar')
 
 @section('breadcrumb')
@@ -26,7 +30,7 @@
         <h1 class="display-4"><a href="{{route('post.find', $post->id)}}">{{$post->title }}</a></h1>
         <p class="lead"><p><a href="{{route('category.find', $post->category->slug)}}">Categori: {{$post->category->name}}</a></p></p>
         <hr class="my-4">
-{{--        Урррраааааа!!!!!!--}}
+        Урррраааааа!!!!!!
         <p>{{Str::limit($post->text , 150)}}</p>
         <footer>
             <div class="container">
@@ -40,7 +44,7 @@
 
                     <div class="col ">
                         <button class="tegs">  <i class="far fa-comment-dots"></i>12</button>
-                        <button class="tegs"> <i class="fas fa-star"></i> 23</button>
+                        <button class="tegs"> <i class="fas fa-star"></i> {{($post->likes_count)}}</button>
                         <button class="tegs"> <i class="fas fa-heart"></i> test</button>
                     </div>
                 </div>
@@ -54,9 +58,7 @@
                     @foreach($post->tags as $tag)
                         <a href="{{route('tag.find', $tag->slug)}}">{{$tag->name}}</a>
                     @endforeach
-                            @foreach($post->likes as $like)
-                                {{$like->slug}}
-                            @endforeach
+
                         </div>
                 </div>
 
