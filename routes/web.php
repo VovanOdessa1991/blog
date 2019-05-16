@@ -73,3 +73,7 @@ Route::get('/tag/{slug}', function($slug){
         'posts'=>$posts
     ]);
 })->name('tag.find' );
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

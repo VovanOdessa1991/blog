@@ -4,8 +4,8 @@
     <div class="container ">
         <div class="row justify-content-md-center ">
             <div class="col-md-6 bg-light">
-                <form>
-
+                <form method="POST" action="{{ route('login') }}>
+                        @csrf
                     <div class="form-group">
                         <h1 class="text-center">Вход</h1>
                         <div class="alert alert-primary" role="alert">

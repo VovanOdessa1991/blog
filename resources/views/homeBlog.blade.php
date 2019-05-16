@@ -44,8 +44,8 @@
 
                     <div class="col ">
                         <button class="tegs">  <i class="far fa-comment-dots"></i>{{($post->comments_count)}}</button>
-                        <button class="tegs"> <i class="fas fa-star"></i> {{($post->likes_count)}}</button>
-                        <button class="tegs"> <i class="fas fa-heart"></i> test</button>
+                        <button class="tegs"> <i class="fas fa-star"></i> </button>
+                        <button class="tegs"> <i class="fas fa-heart"></i> {{($post->likes_count)}}test</button>
                     </div>
                 </div>
 

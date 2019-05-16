@@ -1,6 +1,17 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
+
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -44,11 +55,33 @@
                     <a class="nav-link " href="{{route('category.find', 'Life' )}}">Категория 3</a>
                 </li>
             </ul>
+            @guest
             <form class="form-inline my-2 my-lg-0">
 
-                <a href="/signIn" class="btn btn-primary">Войти</a>
-                <a href="/signUp" class="btn btn-primary">Зарегистрироваться</a>
-            </form>
+                <a href="{{ route('login') }}" class="btn btn-primary">Войти</a>
+                @if (Route::has('register'))
+                <a href="{{ route('register') }}" class="btn btn-primary">Зарегистрироваться</a>
+                @endif
+                @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+            @endguest
+
         </div>
     </nav>
 </div>
@@ -65,7 +98,7 @@
         <div class="col-9">
             @yield('content')
         </div>
-
+{{--С этим не работает--}}
         <div class="col-3">
             <div class="list-group">
                 <h1 class="bg-primary">Теги</h1>
@@ -74,13 +107,15 @@
                     <a href="{{route('tag.find', $tag->slug)}}" class="list-group-item list-group-item-action">{{$tag->name}}</a>
                 @endforeach
                 @endforeach
-{{--                <a href="index.html" class="list-group-item list-group-item-action">PHP</a>--}}
-{{--                <a href="index.html" class="list-group-item list-group-item-action">CSS</a>--}}
-{{--                <a href="index.html" class="list-group-item list-group-item-action">js</a>--}}
-{{--                <a href="index.html" class="list-group-item list-group-item-action">HTML</a>--}}
+                <a href="index.html" class="list-group-item list-group-item-action">PHP</a>
+                <a href="index.html" class="list-group-item list-group-item-action">CSS</a>
+                <a href="index.html" class="list-group-item list-group-item-action">js</a>
+                <a href="index.html" class="list-group-item list-group-item-action">HTML</a>
 
             </div>
         </div>
+
+{{--        !!!--}}
     </div>
 </div>
 
