@@ -45,7 +45,7 @@ class PostController
         $user=\App\User::find($id);
          $posts=$user->posts()->paginate(5);
 
-    return view('posts.by-user',[
+    return view('posts.all-post-filter',[
         'user'=>$user,
         'posts'=>$posts
     ]);
@@ -56,7 +56,7 @@ class PostController
         $tag=\App\Tag::where('slug', '=', $slug)->first();
         $posts=$tag->posts()->paginate(5);
 
-        return view('posts.by-user',[
+        return view('posts.all-post-filter',[
         'tag'=>$tag,
         'posts'=>$posts
     ]);

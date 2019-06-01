@@ -1,3 +1,5 @@
+@extends('layouts.blog-with-sidebar')
+@section('content')
 
         <h2>{{$post->title }}</h2>
         <img src="{{$post->cover}}" alt="">
@@ -8,5 +10,4 @@
             {{$tag->name}}
         @endforeach
     <hr>
-
-
+@endsection

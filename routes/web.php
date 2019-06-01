@@ -36,14 +36,19 @@ Route::get('/', function(){
 
 })->name('posts.all' );
 
+
 Route::get('/postTest/{id}', function($id){
     $post=\App\Post::find($id);
-    return view('posts.post', ['post'=> $post]);
+    $posts=\App\Post::paginate(15);
+    return view('posts.post', ['post'=> $post,
+        'posts'=>$posts]);
 
 })->name('post.find' );
 
 Route::get('/user/{id}', 'PostController@postCategoryTestByUser')
     ->name('user.find' );
+
+
 //Route::get('/user/{id}', function($id){
 //    $user=\App\User::find($id);
 //    $posts=$user->posts()->paginate(5);
