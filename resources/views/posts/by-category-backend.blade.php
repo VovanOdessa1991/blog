@@ -1,11 +1,8 @@
 @extends('layouts.blog-with-sidebar')
 
-@section('category1', 'active')
+@section('category2', 'active')
 
 @section('content')
-
-
-
 
 
 

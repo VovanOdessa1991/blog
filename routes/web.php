@@ -42,37 +42,44 @@ Route::get('/postTest/{id}', function($id){
 
 })->name('post.find' );
 
+Route::get('/user/{id}', 'PostController@postCategoryTestByUser')
+    ->name('user.find' );
+//Route::get('/user/{id}', function($id){
+//    $user=\App\User::find($id);
+//    $posts=$user->posts()->paginate(5);
+//
+//    return view('posts.by-user',[
+//        'user'=>$user,
+//        'posts'=>$posts
+//    ]);
+//
+//})->name('user.find' );
 
-Route::get('/user/{id}', function($id){
-    $user=\App\User::find($id);
-    $posts=$user->posts()->paginate(5);
+//Route::get('/category/{slug}', function($slug){
+//    $category=\App\Category::where('slug', '=', $slug)->first();
+//    $posts=$category->posts()->paginate(5);
+//
+//    return view('posts.by-category',[
+//        'category'=>$category,
+//        'posts'=>$posts
+//    ]);
+//})->name('category.find' );
 
-    return view('posts.by-user',[
-        'user'=>$user,
-        'posts'=>$posts
-    ]);
+Route::get('/category/{slug}', 'PostController@postCategoryTest')
+    ->name('category.find' );
 
-})->name('user.find' );
+Route::get('/tag/{slug}', 'PostController@postCategoryTestByTag')
+    ->name('tag.find' );
 
-Route::get('/category/{slug}', function($slug){
-    $category=\App\Category::where('slug', '=', $slug)->first();
-    $posts=$category->posts()->paginate(5);
-
-    return view('posts.by-category',[
-        'category'=>$category,
-        'posts'=>$posts
-    ]);
-})->name('category.find' );
-
-Route::get('/tag/{slug}', function($slug){
-    $tag=\App\Tag::where('slug', '=', $slug)->first();
-    $posts=$tag->posts()->paginate(5);
-
-    return view('posts.by-tag',[
-        'tag'=>$tag,
-        'posts'=>$posts
-    ]);
-})->name('tag.find' );
+//Route::get('/tag/{slug}', function($slug){
+//    $tag=\App\Tag::where('slug', '=', $slug)->first();
+//    $posts=$tag->posts()->paginate(5);
+//
+//    return view('posts.by-tag',[
+//        'tag'=>$tag,
+//        'posts'=>$posts
+//    ]);
+//})->name('tag.find' );
 
 Auth::routes();
 

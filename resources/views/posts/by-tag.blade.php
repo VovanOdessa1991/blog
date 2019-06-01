@@ -1,4 +1,5 @@
-<h1>Posts by Tag {{$tag->name}}: </h1>
+@extends('layouts.blog-with-sidebar')
+@section('content')
 
 
 @foreach($posts as $post)
@@ -13,3 +14,5 @@
 @endforeach
 
 {{ $posts->links() }}
+
+@endsection
